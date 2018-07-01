@@ -1,4 +1,4 @@
-var mp_version      = 'mp_plugin_v1.1';
+var mp_version      = 'mp_plugin_v1.3';
 
 function setupMusicPlayer(musicPlayerDivID, audioFileName)
 {
@@ -15,11 +15,11 @@ function setupMusicPlayer(musicPlayerDivID, audioFileName)
 		musicPlayerHTML = musicPlayerHTML + '	</audio>\n';
 		musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Buttons -->\n';
 		musicPlayerHTML = musicPlayerHTML + '	<div class="col-2 col-sm-2 d-flex justify-content-center align-self-center p-2 bg-light">\n';
-		musicPlayerHTML = musicPlayerHTML + '		<i id="musicPlayerButton" class="material-icons">play_circle_outline</i>\n';
+		musicPlayerHTML = musicPlayerHTML + '		<i id="musicPlayerButton" class="material-icons btn">play_circle_outline</i>\n';
 		musicPlayerHTML = musicPlayerHTML + '	</div>\n';
 		musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Info -->\n';
 		musicPlayerHTML = musicPlayerHTML + '	<div id="musicPlayerInfo" class="col-10 col-sm-10 p-2 bg-light">\n';
-		musicPlayerHTML = musicPlayerHTML + '		<div class="row mx-1 bg-dark">\n';
+		musicPlayerHTML = musicPlayerHTML + '		<div class="row m-1 bg-dark">\n';
 		musicPlayerHTML = musicPlayerHTML + '			<div class="col-10 col-sm-10 text-white">\n';
 		musicPlayerHTML = musicPlayerHTML + '				<span id="songName">'+audioFileName+'</span>\n';
 		musicPlayerHTML = musicPlayerHTML + '			</div>\n';
