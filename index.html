@@ -10,15 +10,17 @@
 <!-- < Style Sheets -->
 
 <!-- > Javascript Files -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+	<script src="mp_plugin/mp_javascript/music_player_js.js"></script>
 <!-- < Javascript Files -->
 
 <title>Miguel J Rodriguez</title>
 </head>
 
-<body>
+<body onload="setupMusicPlayer('musicPlayer', 'new_flesh.mp3');">
 
 <div class="container-fluid">
 	<div class="row">
@@ -62,7 +64,7 @@
 							<div class="row p-2 bg-light">
 								<div class="col-12 col-sm-12">
 									<div class="row mb-2">
-										<i class="material-icons">email</i><span class="mx-1"></span>myemail@email.com
+										<i class="material-icons">email</i><span class="mx-1"></span>email@domain.com
 									</div>
 
 									<div class="row mb-2">
@@ -78,13 +80,8 @@
 					</div>
 
 					<!-- Row: Music Player -->
-					<div class="row border mx-1 mb-3">
-						<div class="col-2 col-sm-2 bg-light">
-							Play
-						</div>
-						<div class="col-10 col-sm-10 bg-secondary">
-							Music Player
-						</div>
+					<div id="musicPlayer" class="mx-1 mb-3">
+
 					</div>
 				</div>  
 
