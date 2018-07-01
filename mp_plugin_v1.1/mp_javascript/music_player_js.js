@@ -1,13 +1,16 @@
+var mp_version      = 'mp_plugin_v1.1';
+
 function setupMusicPlayer(musicPlayerDivID, audioFileName)
 {
 	$(document).ready(function()
 	{
+		
 		var musicPlayerHTML = '';
 		
 		$('#'+musicPlayerDivID).addClass("row border");
 
 		musicPlayerHTML = musicPlayerHTML + '	<audio id="musicPlayerControls">\n';
-		musicPlayerHTML = musicPlayerHTML + '		<source src="mp_plugin/mp_audio_files/'+audioFileName+'" type="audio/mpeg">\n';
+		musicPlayerHTML = musicPlayerHTML + '		<source src="'+mp_version+'/mp_audio_files/'+audioFileName+'" type="audio/mpeg">\n';
 		musicPlayerHTML = musicPlayerHTML + '		Your browser does not support the audio element.\n';
 		musicPlayerHTML = musicPlayerHTML + '	</audio>\n';
 		musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Buttons -->\n';
@@ -21,7 +24,7 @@ function setupMusicPlayer(musicPlayerDivID, audioFileName)
 		musicPlayerHTML = musicPlayerHTML + '				<span id="songName">'+audioFileName+'</span>\n';
 		musicPlayerHTML = musicPlayerHTML + '			</div>\n';
 		musicPlayerHTML = musicPlayerHTML + '			<div class="col-2 col-sm-2">\n';
-		musicPlayerHTML = musicPlayerHTML + '				<img id="audio_eq_icon" src="mp_plugin/mp_icons/audio_eq_pause.png" class="img-fluid" alt="Eq Icon">\n';
+		musicPlayerHTML = musicPlayerHTML + '				<img id="audio_eq_icon" src="'+mp_version+'/mp_icons/audio_eq_pause.png" class="img-fluid" alt="Eq Icon">\n';
 		musicPlayerHTML = musicPlayerHTML + '			</div>\n';
 		musicPlayerHTML = musicPlayerHTML + '		</div>\n';
 		musicPlayerHTML = musicPlayerHTML + '	</div>\n';
@@ -40,13 +43,13 @@ function getEqIcon()
 function startEqIconAnimation()
 {
 	var eqIcon = getEqIcon();
-	eqIcon.attr("src","mp_plugin/mp_icons/audio_eq_play.gif");
+	eqIcon.attr("src",mp_version+"/mp_icons/audio_eq_play.gif");
 }
 
 function stopEqIconAnimation()
 {
 	var eqIcon = getEqIcon();
-	eqIcon.attr("src","mp_plugin/mp_icons/audio_eq_pause.png");
+	eqIcon.attr("src",mp_version+"/mp_icons/audio_eq_pause.png");
 }
 
 function getMusicPlayerControls()
