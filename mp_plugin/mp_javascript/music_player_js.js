@@ -2,7 +2,6 @@ function setupMusicPlayer(musicPlayerDivID, audioFileName)
 {
 	$(document).ready(function()
 	{
-		
 		var musicPlayerHTML = '';
 		
 		$('#'+musicPlayerDivID).addClass("row border");
@@ -22,88 +21,106 @@ function setupMusicPlayer(musicPlayerDivID, audioFileName)
 		musicPlayerHTML = musicPlayerHTML + '				<span id="songName">'+audioFileName+'</span>\n';
 		musicPlayerHTML = musicPlayerHTML + '			</div>\n';
 		musicPlayerHTML = musicPlayerHTML + '			<div class="col-2 col-sm-2">\n';
-		musicPlayerHTML = musicPlayerHTML + '				<img id="audio_eq_icon" src="mp_plugin/mp_icons/audio_eq_pause.png" class="img-fluid" alt="Audio Animation">\n';
+		musicPlayerHTML = musicPlayerHTML + '				<img id="audio_eq_icon" src="mp_plugin/mp_icons/audio_eq_pause.png" class="img-fluid" alt="Eq Icon">\n';
 		musicPlayerHTML = musicPlayerHTML + '			</div>\n';
 		musicPlayerHTML = musicPlayerHTML + '		</div>\n';
 		musicPlayerHTML = musicPlayerHTML + '	</div>\n';
 		
 		$('#'+musicPlayerDivID).html(musicPlayerHTML);
 		
-		$(window).resize(resetSongNameAnimation);
-		$('#musicPlayerButton').click(musicPlayerButtonPressed);
-		
-		console.log('function [setupMusicPlayer] executed successfully');
-    });
+		$('#musicPlayerButton').click(musicPlayerButtonPressed);	
+	});
 }
 
-function startSongNameAnimation()
+function getEqIcon()
 {
-	var audioIsPaused = $('#musicPlayerControls')[0].paused;
-
-	if ($('#songName').css('opacity') == 0)
-	{
-		$('#songName').css({position: "absolute", left:5, opacity: 1});
-	}
-	else
-	{
-		$('#songName').css({position: "absolute"});	
-	}
-
-	var songNameWidth = $("#songName").width();
-	var maxSlideWidth = $("#songName").parent().width() - songNameWidth;
-	var animationLength = $(window).width() * 20;
-	
-	if(!audioIsPaused)
-	{
-		$("#songName").animate({opacity: 0, left: maxSlideWidth}, animationLength, function(){ startSongNameAnimation(); });
-		startEqIconAnimation();
-	}
-	else
-	{
-		//stopEqIconAnimation();
-		musicPlayerButtonPressed();
-	}
-}
-
-function stopSongNameAnimation()
-{
-	$("#songName").stop();
-	$("#songName").clearQueue();
-	stopEqIconAnimation();
-}
-
-function resetSongNameAnimation()
-{
-	stopSongNameAnimation();
-	startSongNameAnimation();
+	return $('#audio_eq_icon');
 }
 
 function startEqIconAnimation()
 {
-	$('#audio_eq_icon').attr("src","mp_plugin/mp_icons/audio_eq_play.gif");
+	var eqIcon = getEqIcon();
+	eqIcon.attr("src","mp_plugin/mp_icons/audio_eq_play.gif");
 }
 
 function stopEqIconAnimation()
 {
-	$('#audio_eq_icon').attr("src","mp_plugin/mp_icons/audio_eq_pause.png");
+	var eqIcon = getEqIcon();
+	eqIcon.attr("src","mp_plugin/mp_icons/audio_eq_pause.png");
 }
+
+function getMusicPlayerControls()
+{
+	return $('#musicPlayerControls')[0];
+}
+
+function getMusicPlayerButton()
+{
+	return $('#musicPlayerButton');
+}
+
+function playAudio()
+{
+	var musicPlayerControls = getMusicPlayerControls();
+	musicPlayerControls.play();
+}
+
+function pauseAudio()
+{
+	var musicPlayerControls = getMusicPlayerControls();
+	musicPlayerControls.pause();
+}
+
+function audioIsPaused()
+{
+	var musicPlayerControls = getMusicPlayerControls();
+	return musicPlayerControls.paused;
+}
+
+function getPlayButtonHTML()
+{
+	return "play_circle_outline";
+}
+
+function getPauseButtonHTML()
+{
+	return "pause_circle_outline";
+}
+
+function getMusicPlayerButtonHTML()
+{
+	var musicPlayerButton = getMusicPlayerButton();
+	return musicPlayerButton.html();
+}
+
+function setPlayButton()
+{
+	var musicPlayerButton = getMusicPlayerButton();
+	var playButtonHTML    = getPlayButtonHTML();
+
+	musicPlayerButton.html(playButtonHTML);
+}
+
+function setPauseButton()
+{
+	var musicPlayerButton = getMusicPlayerButton();
+	var pauseButtonHTML   = getPauseButtonHTML();
+
+	musicPlayerButton.html(pauseButtonHTML);
+}
+
 function musicPlayerButtonPressed()
 {
-	console.log('music player button pressed');
-	var musicPlayerButtonHTML = $('#musicPlayerButton').html();
-	var pauseButtonHTML = "pause_circle_outline";
-	var playButtonHTML  = "play_circle_outline";
-
-	if (musicPlayerButtonHTML == playButtonHTML)
+	if (audioIsPaused())
 	{
-		$('#musicPlayerButton').html(pauseButtonHTML);
-		$('#musicPlayerControls')[0].play();
-		startSongNameAnimation();
+		setPauseButton();
+		playAudio();
+		startEqIconAnimation();
 	}
 	else
 	{
-		$('#musicPlayerButton').html(playButtonHTML);
-		$('#musicPlayerControls')[0].pause();
-		stopSongNameAnimation();
+		setPlayButton();
+		pauseAudio();
+		stopEqIconAnimation();
 	}
 }
