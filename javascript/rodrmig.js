@@ -1,4 +1,4 @@
 function pageIsLoaded()
 {
-	setupMusicPlayer('musicPlayer', 'new_flesh.mp3');
+	setupMusicPlayer('new_flesh.mp3');
 }
