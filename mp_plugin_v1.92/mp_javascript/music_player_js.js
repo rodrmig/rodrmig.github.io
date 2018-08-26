@@ -1,4 +1,4 @@
-var g_musicPlayerVersion = 'mp_plugin_v1.8';
+var g_musicPlayerVersion = 'mp_plugin_v1.92';
 var g_songName = 'xx_song_name_xx.mp3';
 
 function setupMusicPlayer(songName)
@@ -67,17 +67,17 @@ function getMusicPlayerHTML()
 	musicPlayerHTML = musicPlayerHTML + '		Your browser does not support the audio element.\n';
 	musicPlayerHTML = musicPlayerHTML + '	</audio>\n';
 	musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Buttons -->\n';
-	musicPlayerHTML = musicPlayerHTML + '	<div class="col-2 col-sm-2 d-flex justify-content-center align-self-center p-2 bg-light">\n';
+	musicPlayerHTML = musicPlayerHTML + '	<div class="col-2 col-sm-2 d-flex justify-content-center align-self-center p-2">\n';
 	musicPlayerHTML = musicPlayerHTML + '		<i id="XX_musicPlayerButton" class="material-icons btn">play_circle_outline</i>\n';
 	musicPlayerHTML = musicPlayerHTML + '	</div>\n';
 	musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Info -->\n';
-	musicPlayerHTML = musicPlayerHTML + '	<div class="col-10 col-sm-10 p-2 bg-light">\n';
-	musicPlayerHTML = musicPlayerHTML + '		<div class="row m-1 bg-dark">\n';
-	musicPlayerHTML = musicPlayerHTML + '			<div class="col-10 col-sm-10 text-white">\n';
+	musicPlayerHTML = musicPlayerHTML + '	<div class="col-10 col-sm-10 p-2">\n';
+	musicPlayerHTML = musicPlayerHTML + '		<div class="row m-1 my-3 bg-dark">\n';
+	musicPlayerHTML = musicPlayerHTML + '			<div class="col-8 col-sm-8 text-white">\n';
 	musicPlayerHTML = musicPlayerHTML + '				<span>'+g_songName+'</span>\n';
 	musicPlayerHTML = musicPlayerHTML + '			</div>\n';
-	musicPlayerHTML = musicPlayerHTML + '			<div class="col-2 col-sm-2">\n';
-	musicPlayerHTML = musicPlayerHTML + '				<img id="XX_audioEqIcon" src="'+g_musicPlayerVersion+'/mp_icons/audio_eq_pause.png" class="img-fluid" alt="Eq Icon">\n';
+	musicPlayerHTML = musicPlayerHTML + '			<div class="col-4 col-sm-4">\n';
+	musicPlayerHTML = musicPlayerHTML + '				<img id="XX_audioEqIcon" src="'+g_musicPlayerVersion+'/mp_icons/audio_eq_pause.png" class="img-fluid float-right mt-2" alt="Eq Icon">\n';
 	musicPlayerHTML = musicPlayerHTML + '			</div>\n';
 	musicPlayerHTML = musicPlayerHTML + '		</div>\n';
 	musicPlayerHTML = musicPlayerHTML + '	</div>\n';
@@ -90,9 +90,9 @@ function getMusicPlayerHTML()
 function setMusicPlayerHTML()
 {
 	var musicPlayerContainer = getMusicPlayerContainer();
-	var musicPlayerHTML = getMusicPlayerHTML();
+	var musicPlayerHTML      = getMusicPlayerHTML();
 	
-	musicPlayerContainer.addClass("row border");
+	musicPlayerContainer.addClass("row border rounded bg-light");
 	musicPlayerContainer.html(musicPlayerHTML);
 }
 
@@ -107,7 +107,11 @@ function setMusicPlayerOnEndedAction()
 {
 	var musicPlayer = getMusicPlayer();
 
-	musicPlayer.on('ended', pauseAudio);
+	musicPlayer.on('ended', function(){
+		setPlayButton();
+		pauseAudio();	
+		stopEqIconAnimation();
+	});
 }
 
 function setPlayButton()
@@ -146,29 +150,29 @@ function playAudio()
 {
 	var musicPlayerControls = getMusicPlayerControls();
 
-	setPauseButton();
 	musicPlayerControls.play();
-	startEqIconAnimation();
 }
 
 function pauseAudio()
 {
 	var musicPlayerControls = getMusicPlayerControls();
 
-	setPlayButton();
 	musicPlayerControls.pause();
-	stopEqIconAnimation();
 }
 
 function musicPlayerButtonPressed()
 {
 	if (audioIsPaused())
 	{
+		setPauseButton();
 		playAudio();	
+		startEqIconAnimation();
 	}
 	else
 	{
+		setPlayButton();
 		pauseAudio();	
+		stopEqIconAnimation();
 	}
 }
 //--< ACTION functions
