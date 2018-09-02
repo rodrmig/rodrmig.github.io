@@ -1,4 +1,4 @@
-var g_musicPlayerVersion = 'mp_plugin_v1.92';
+var g_musicPlayerVersion = 'mp_plugin_v1.94';
 var g_songName = 'xx_song_name_xx.mp3';
 
 function setupMusicPlayer(songName)
@@ -9,7 +9,9 @@ function setupMusicPlayer(songName)
 	{
 		setMusicPlayerHTML();
 		setMusicPlayerButtonAction();
-		setMusicPlayerOnEndedAction();
+		//setMusicPlayerOnEndedAction();
+		setMusicPlayerOnPauseAction();
+		setMusicPlayerOnPlayAction();
 	});
 }
 
@@ -102,7 +104,7 @@ function setMusicPlayerButtonAction()
 
 	musicPlayerButton.click(musicPlayerButtonPressed);
 }
-
+/*
 function setMusicPlayerOnEndedAction()
 {
 	var musicPlayer = getMusicPlayer();
@@ -111,6 +113,26 @@ function setMusicPlayerOnEndedAction()
 		setPlayButton();
 		pauseAudio();	
 		stopEqIconAnimation();
+	});
+}
+*/
+function setMusicPlayerOnPauseAction()
+{
+	var musicPlayer = getMusicPlayer();
+
+	musicPlayer.on('pause', function(){
+		setPlayButton();
+		stopEqIconAnimation();
+	});
+}
+
+function setMusicPlayerOnPlayAction()
+{
+	var musicPlayer = getMusicPlayer();
+
+	musicPlayer.on('play', function(){
+		setPauseButton();
+		startEqIconAnimation();
 	});
 }
 
@@ -164,15 +186,15 @@ function musicPlayerButtonPressed()
 {
 	if (audioIsPaused())
 	{
-		setPauseButton();
+		//setPauseButton();
 		playAudio();	
-		startEqIconAnimation();
+		//startEqIconAnimation();
 	}
 	else
 	{
-		setPlayButton();
+		//setPlayButton();
 		pauseAudio();	
-		stopEqIconAnimation();
+		//stopEqIconAnimation();
 	}
 }
 //--< ACTION functions

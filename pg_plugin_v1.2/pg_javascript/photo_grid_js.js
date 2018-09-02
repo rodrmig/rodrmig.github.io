@@ -1,4 +1,4 @@
-var g_photoGridVersion    = 'pg_plugin_v1.1';
+var g_photoGridVersion    = 'pg_plugin_v1.2';
 var g_maxImageCountPerRow = 3;
 var g_imageCount          = 0;
 var g_photoGridModalID    = 'XX_photoGridModal';
@@ -33,7 +33,7 @@ function getPhotoGridAlbumHTML()
 			if(loopImageCount <= g_imageCount)
 			{
 				photoGridAlbumHTML =  photoGridAlbumHTML + '	<div class="col">\n';
-				photoGridAlbumHTML =  photoGridAlbumHTML + '		<img src="'+g_photoGridVersion+'/pg_images/img_'+loopImageCount+'.jpeg" class="img-fluid rounded mt-2 mb-2" data-toggle="modal" data-target="#'+g_photoGridModalID+'" alt="Image">\n';
+				photoGridAlbumHTML =  photoGridAlbumHTML + '		<img src="'+g_photoGridVersion+'/pg_images/img_'+loopImageCount+'.jpeg" class="img-fluid mt-2 mb-2" data-toggle="modal" data-target="#'+g_photoGridModalID+'" alt="Image">\n';
 				photoGridAlbumHTML =  photoGridAlbumHTML + '	</div>\n';
 			}
 		}
@@ -55,7 +55,7 @@ function getPhotoGridModalHTML()
 	photoGridModalHTML = photoGridModalHTML + '			<button type="button" class="close" data-dismiss="modal" aria-label="Close">\n';
 	photoGridModalHTML = photoGridModalHTML + '				<span aria-hidden="true">&times;</span>\n';
 	photoGridModalHTML = photoGridModalHTML + '			</button>\n';
-	photoGridModalHTML = photoGridModalHTML + '			<img src="pg_plugin_v1.0/pg_images/img_1.jpeg" id="XX_modalImage" class="img-fluid rounded mt-1" alt="Image">\n';
+	photoGridModalHTML = photoGridModalHTML + '			<img src="'+g_photoGridVersion+'/pg_images/img_1.jpeg" id="XX_modalImage" class="img-fluid mt-1" alt="Image">\n';
 	photoGridModalHTML = photoGridModalHTML + '		</div>\n';
 	photoGridModalHTML = photoGridModalHTML + '	</div>\n';
 	photoGridModalHTML = photoGridModalHTML + '	</div>\n';
