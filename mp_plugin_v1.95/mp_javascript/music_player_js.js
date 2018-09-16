@@ -1,15 +1,16 @@
-var g_musicPlayerVersion = 'mp_plugin_v1.94';
+var g_musicPlayerVersion = 'mp_plugin_v1.95';
 var g_songName = 'xx_song_name_xx.mp3';
+var g_artistName = 'xx_artist_xx';
 
-function setupMusicPlayer(songName)
+function setupMusicPlayer(songName, artistName)
 {
 	g_songName = songName;
-
+	g_artistName = artistName;
+	
 	$(document).ready(function()
 	{
 		setMusicPlayerHTML();
 		setMusicPlayerButtonAction();
-		//setMusicPlayerOnEndedAction();
 		setMusicPlayerOnPauseAction();
 		setMusicPlayerOnPlayAction();
 	});
@@ -52,12 +53,12 @@ function audioIsPaused()
 
 function getPlayButtonHTML()
 {
-	return "play_circle_outline";
+	return '<i class="fa fa-play" style="color:#00d820"></i>';
 }
 
 function getPauseButtonHTML()
 {
-	return "pause_circle_outline";
+	return '<i class="fa fa-pause" style="color:#4f4f4f"></i>';
 }
 
 function getMusicPlayerHTML()
@@ -68,21 +69,30 @@ function getMusicPlayerHTML()
 	musicPlayerHTML = musicPlayerHTML + '		<source src="'+g_musicPlayerVersion+'/mp_audio_files/song.mp3" type="audio/mpeg">\n';
 	musicPlayerHTML = musicPlayerHTML + '		Your browser does not support the audio element.\n';
 	musicPlayerHTML = musicPlayerHTML + '	</audio>\n';
+
 	musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Buttons -->\n';
-	musicPlayerHTML = musicPlayerHTML + '	<div class="col-2 col-sm-2 d-flex justify-content-center align-self-center p-2">\n';
-	musicPlayerHTML = musicPlayerHTML + '		<i id="XX_musicPlayerButton" class="material-icons btn">play_circle_outline</i>\n';
+	musicPlayerHTML = musicPlayerHTML + '	<div class="col-2 col-sm-2 d-flex justify-content-center align-self-center p-0">\n';
+	musicPlayerHTML = musicPlayerHTML + '		<button id="XX_musicPlayerButton" class="btn border border-secondary px-1 rounded" style="font-size:25px">'+getPlayButtonHTML()+'</button>\n';
 	musicPlayerHTML = musicPlayerHTML + '	</div>\n';
+
 	musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Info -->\n';
-	musicPlayerHTML = musicPlayerHTML + '	<div class="col-10 col-sm-10 p-2">\n';
-	musicPlayerHTML = musicPlayerHTML + '		<div class="row m-1 my-3 bg-dark">\n';
+	musicPlayerHTML = musicPlayerHTML + '	<div class="col-10 col-sm-10">\n';
+	musicPlayerHTML = musicPlayerHTML + '		<div class="row bg-dark rounded">\n';
 	musicPlayerHTML = musicPlayerHTML + '			<div class="col-8 col-sm-8 text-white">\n';
-	musicPlayerHTML = musicPlayerHTML + '				<span>'+g_songName+'</span>\n';
+	musicPlayerHTML = musicPlayerHTML + '				<span>'+g_songName+'</span><br>\n';
+	musicPlayerHTML = musicPlayerHTML + '				<span>'+g_artistName+'</span>\n';
 	musicPlayerHTML = musicPlayerHTML + '			</div>\n';
 	musicPlayerHTML = musicPlayerHTML + '			<div class="col-4 col-sm-4">\n';
-	musicPlayerHTML = musicPlayerHTML + '				<img id="XX_audioEqIcon" src="'+g_musicPlayerVersion+'/mp_icons/audio_eq_pause.png" class="img-fluid float-right mt-2" alt="Eq Icon">\n';
+	
+	musicPlayerHTML = musicPlayerHTML + '				<span>&nbsp;</span><br>\n';
+	
+
+	musicPlayerHTML = musicPlayerHTML + '				<span class="ml-2"><img id="XX_audioEqIcon" src="'+g_musicPlayerVersion+'/mp_icons/audio_eq_pause.png" class="img-fluid" alt="Eq Icon"></span>\n';
 	musicPlayerHTML = musicPlayerHTML + '			</div>\n';
 	musicPlayerHTML = musicPlayerHTML + '		</div>\n';
 	musicPlayerHTML = musicPlayerHTML + '	</div>\n';
+
+
 
 	return musicPlayerHTML;
 }
@@ -94,8 +104,10 @@ function setMusicPlayerHTML()
 	var musicPlayerContainer = getMusicPlayerContainer();
 	var musicPlayerHTML      = getMusicPlayerHTML();
 	
-	musicPlayerContainer.addClass("row border rounded bg-light");
+	musicPlayerContainer.addClass("row border border-dark p-2");
 	musicPlayerContainer.html(musicPlayerHTML);
+	musicPlayerContainer.css("background-image","linear-gradient(#ffffff, #cdcdcd,#969696)");
+	getMusicPlayerButton().css("background-image","linear-gradient(#ffffff, #cdcdcd,#969696)");
 }
 
 function setMusicPlayerButtonAction()
@@ -104,18 +116,7 @@ function setMusicPlayerButtonAction()
 
 	musicPlayerButton.click(musicPlayerButtonPressed);
 }
-/*
-function setMusicPlayerOnEndedAction()
-{
-	var musicPlayer = getMusicPlayer();
 
-	musicPlayer.on('ended', function(){
-		setPlayButton();
-		pauseAudio();	
-		stopEqIconAnimation();
-	});
-}
-*/
 function setMusicPlayerOnPauseAction()
 {
 	var musicPlayer = getMusicPlayer();
@@ -186,15 +187,11 @@ function musicPlayerButtonPressed()
 {
 	if (audioIsPaused())
 	{
-		//setPauseButton();
 		playAudio();	
-		//startEqIconAnimation();
 	}
 	else
 	{
-		//setPlayButton();
 		pauseAudio();	
-		//stopEqIconAnimation();
 	}
 }
 //--< ACTION functions
