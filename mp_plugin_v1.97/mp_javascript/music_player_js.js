@@ -1,4 +1,4 @@
-var g_musicPlayerVersion = 'mp_plugin_v1.95';
+var g_musicPlayerVersion = 'mp_plugin_v1.97';
 var g_songName = 'xx_song_name_xx.mp3';
 var g_artistName = 'xx_artist_xx';
 
@@ -72,7 +72,7 @@ function getMusicPlayerHTML()
 
 	musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Buttons -->\n';
 	musicPlayerHTML = musicPlayerHTML + '	<div class="col-2 col-sm-2 d-flex justify-content-center align-self-center p-0">\n';
-	musicPlayerHTML = musicPlayerHTML + '		<button id="XX_musicPlayerButton" class="btn border border-secondary px-1 rounded" style="font-size:25px">'+getPlayButtonHTML()+'</button>\n';
+	musicPlayerHTML = musicPlayerHTML + '		<button id="XX_musicPlayerButton" class="btn border border-secondary mr-1 btn-block rounded" style="font-size:25px">'+getPlayButtonHTML()+'</button>\n';
 	musicPlayerHTML = musicPlayerHTML + '	</div>\n';
 
 	musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Info -->\n';
@@ -87,7 +87,7 @@ function getMusicPlayerHTML()
 	musicPlayerHTML = musicPlayerHTML + '				<span>&nbsp;</span><br>\n';
 	
 
-	musicPlayerHTML = musicPlayerHTML + '				<span class="ml-2"><img id="XX_audioEqIcon" src="'+g_musicPlayerVersion+'/mp_icons/audio_eq_pause.png" class="img-fluid" alt="Eq Icon"></span>\n';
+	musicPlayerHTML = musicPlayerHTML + '				<span class="ml-2 float-right"><img id="XX_audioEqIcon" src="'+g_musicPlayerVersion+'/mp_icons/audio_eq_pause.png" class="img-fluid" alt="Eq Icon"></span>\n';
 	musicPlayerHTML = musicPlayerHTML + '			</div>\n';
 	musicPlayerHTML = musicPlayerHTML + '		</div>\n';
 	musicPlayerHTML = musicPlayerHTML + '	</div>\n';
