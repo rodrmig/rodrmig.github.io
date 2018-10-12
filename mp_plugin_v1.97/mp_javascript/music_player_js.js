@@ -72,7 +72,7 @@ function getMusicPlayerHTML()
 
 	musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Buttons -->\n';
 	musicPlayerHTML = musicPlayerHTML + '	<div class="col-2 col-sm-2 d-flex justify-content-center align-self-center p-0">\n';
-	musicPlayerHTML = musicPlayerHTML + '		<button id="XX_musicPlayerButton" class="btn border border-secondary mr-1 btn-block rounded" style="font-size:25px">'+getPlayButtonHTML()+'</button>\n';
+	musicPlayerHTML = musicPlayerHTML + '		<button id="XX_musicPlayerButton" class="btn btn-block border border-secondary rounded mr-1" style="font-size:25px">'+getPlayButtonHTML()+'</button>\n';
 	musicPlayerHTML = musicPlayerHTML + '	</div>\n';
 
 	musicPlayerHTML = musicPlayerHTML + '	<!-- Row: Music Player Info -->\n';
