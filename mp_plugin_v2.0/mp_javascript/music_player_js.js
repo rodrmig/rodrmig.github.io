@@ -1,4 +1,4 @@
-var g_musicPlayerVersion = 'mp_plugin_v1.98';
+var g_musicPlayerVersion = 'mp_plugin_v2.0';
 var g_songName = 'xx_song_name_xx.mp3';
 var g_artistName = 'xx_artist_xx';
 
