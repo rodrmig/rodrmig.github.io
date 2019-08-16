@@ -1,176 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<meta property="og:url" content="https://rodrmig.github.io/">
-<meta property="og:title" content="Miguel J Rodriguez">
-<meta property="og:type" content="website">
-<meta property="og:description" content="Programmer Analyst @ Wells Blue Bunny. Check out my personal website.">
-<meta property="og:image" content="https://rodrmig.github.io/images/ogimage.jpeg">
-
-<!-- > Style Sheets -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-	<link rel="stylesheet" href="css/css_v1.2.css">
-<!-- < Style Sheets -->
-
-<!-- > Javascript Files -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-
-	<script src="mp_plugin_v2.0/mp_javascript/music_player_js.js"></script>
-	<script src="pg_plugin_v1.2/pg_javascript/photo_grid_js.js"></script>
-	<script src="javascript/rodrmig_v1.13.js"></script>
-<!-- < Javascript Files -->
-
-<title>Miguel J Rodriguez</title>
-<link rel="shortcut icon" href="https://x.myspacecdn.com/new/common/images/favicons/favicon.ico" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/app.css" rel="stylesheet">
+  <title>Miguel Rodriguez</title>
 </head>
 
-<body onload="pageIsLoaded()">
+<body>
+  <div id="page-wrapper">
+    <div id="header">
+      <h1>rodrmig.github.io</h1>
+    </div>
 
-<div class="container-fluid">
-	<div class="row">
-	    <!-- Left Margin -->
-	    <div class="col-2 d-none d-lg-block d-xl-block"></div>
+    <div class="content">
+      <div id="profile">
+        <div id="profile-name">Miguel Rodriguez</div>
+        <div id="profile-picture"><img src="img/img_01.jpeg" alt="profile-picture"></div>
+        <div id="profile-description">
+          <div>
+            Male<br>
+            26 Years Old<br>
+            Sioux City, IA<br>
+            United States<br>
+          </div>
 
-	    <!-- Main Center Block-->
-	    <div class="col">
-	    	<!-- Page Header -->
-	    	<div class="row d-flex justify-content-center mx-1 my-3 p-3 bg-fb">
-	    		<h2 class="text-white d-flex justify-content-center">rodrmig.github.io</h2>
-	    	</div>
-	    	
-	    	<!-- > Page Elements -->
-	    	<div class="row">
-				<!-- Left -->
-				<div class="col-sm-6">
-					<!-- Row: Profile Picture  -->
-					<div class="row mx-1 mb-3 bg-light border">
-						
-						<div class="col-5 col-sm-6 py-3">
-							<img src="images/img_1.jpeg" class="img-fluid" data-toggle="modal" data-target="#XX_photoGridModal" alt="Profile Picture">
-						</div>
+          <div>
+            <img id="online-icon" src="img/online_icon.gif" alt="Online Now Icon">
+          </div>
+        </div>
+      </div>
 
-						<div class="col-7 col-sm-6 py-3 align-self-center">
-							<p>
-							Male<br>
-							25 Years Old<br>
-							Sioux City, IA<br>
-							United States<br>
-							</p>
-							<img src="images/online_icon.gif" class="img-fluid" alt="Online Now Icon">
-						</div>
-					</div>
+      <div class="blue-border">
+        <div class="blue-header">general</div>
+        <div>
+          <table>
+            <tr>
+              <td><i class="material-icons-outlined">mail</i></td>
+              <td><a href="mailto:mrodriguez.globe@gmail.com" target="_top">mrodriguez.globe@gmail.com</a></td>
+            </tr>
+            <tr>
+              <td><i class="material-icons-outlined">phone_iphone</i></td>
+              <td>(712) 291-5822</td>
+            </tr>
+            <tr>
+              <td><i class="material-icons-outlined">account_box</i></td>
+              <td><a href="https://drive.google.com/open?id=1rAp3QN9u1J6vDIsNjBqfOh_ODYyfAlrW" target="_blank">resume</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
 
-					<!-- Row: Contact Info -->
-					<div class="row mx-1 mb-3">
-						<div class="col">
-							<div class="row px-1 text-white bg-fb">
-								general info
-							</div>
-							<div class="row p-2 bg-light border">
-								<div class="col">
-									<div class="row mb-2">
-										<span class="mr-2"><i class="fa fa-envelope"></i></span>
-										
-										<span><a href="mailto:mrodriguez.globe@gmail.com" target="_top">mrodriguez.globe@gmail.com</a></span>
-									</div>
+      <div id="website-url">
+        <div class="bold-text">Website URL:</div>
+        <div class="default-indent">https://rodrmig.github.io/</div>
+      </div>
 
-									<div class="row mb-2">
-										<span class="mr-2"><i class="fa fa-phone"></i></span>
-										<span>&nbsp;712-291-5822</span>
-									</div>
+      <div>music player</div>
 
-									<div class="row">
-										<span class="mr-2"><i class="fa fa-id-card"></i></span>
-										<span><a href="https://drive.google.com/open?id=1rAp3QN9u1J6vDIsNjBqfOh_ODYyfAlrW" target="_blank">resume</a></span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+      <div class="blue-border">
+        <div class="blue-header">interests</div>
+        <div>
+          <table class="blue-table">
+            <tr>
+              <td>General</td>
+              <td>NBA Basketball, Reddit, Food, RuneScape, Hip Hop, YouTube, Cars, City Skylines</td>
+            </tr>
+            <tr>
+              <td>Music</td>
+              <td>Tycho, Kendrick Lamar, Blackmill, J Cole, Current Joys, Logic</td>
+            </tr>
+            <tr>
+              <td>Books</td>
+              <td>Clean Code by Robert C Martin</td>
+            </tr>
+            <tr>
+              <td>Heroes</td>
+              <td>None</td>
+            </tr>
+          </table>
+        </div>
+      </div>
 
-					<!-- Row: Website URL -->
-					<div class="row mx-1 mb-3 p-0 border bg-light">
-						<div class="col">
-							<div class="row">
-								<small class="font-weight-bold">&nbsp;Website URL: </small>
-							</div>
-						
-							<div class="row">
-								<small class="font-weight-light">&nbsp;&nbsp;&nbsp;&nbsp;https://rodrmig.github.io/</small>
-							</div>
-						</div>	
-					</div>
+      <div class="blue-border">
+        <div class="blue-header">details</div>
+        <div>
+          <table class="blue-table">
+            <tr>
+              <td>Here for</td>
+              <td>Friends</td>
+            </tr>
+            <tr>
+              <td>Hometown</td>
+              <td>Storm Lake, IA</td>
+            </tr>
+            <tr>
+              <td>Children</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Education</td>
+              <td>B.S. Computer Science</td>
+            </tr>
+            <tr>
+              <td>Occupation</td>
+              <td>Software Engineer</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
 
-					<!-- Row: Music Player -->
-					<div id="musicPlayer" class="mx-1 mb-3">
-					</div>
-					
-					<!-- Row: Photo Album -->
-					<div class="row mx-1 mb-3">
-						<div class="col">
-							<div class="row px-1 text-white bg-fb">
-								photo album
-							</div>
-							<div id="photoGrid" class="row bg-light p-3 border">
-							
-							</div>
-						</div>
-					</div>
+    <div class="content">
+      <div id="network">
+        Miguel is in your extended network
+      </div>
 
-				</div>  
+      <div>
+        <div class="orange-header">blurbs</div>
 
-				<!-- Right -->
-				<div class="col-sm-6">
-					<!-- Row: About Me -->
-					<div class="row mx-1 mb-3">
-						<div class="col">
-							<div class="row px-1 text-white bg-fb">
-								about me
-							</div>
-							<div class="row bg-light p-2 border">
-								I can take anything from my imagination that is logically possible and give it life in the digital world.
-								&nbsp;<br>
-								&nbsp;<br>
-								Welcome to my webpage. My name is Miguel Rodriguez and I’m a 25 year old male living in Sioux City, Iowa. I was born in the LA area in 1993 but grew up in the midwest. I have a bachelors degree in computer science and currently work as a software engineer for Blue Bunny Ice Cream.
-								
-							</div>
-						</div>
-					</div>
+        <div class="default-indent">
+          <div class="orange-text">about me:</div>
+          <div>I was born in Los Angeles in 1993 but grew up in the midwest. I have a bachelor's degree in computer science and currently work as a software engineer at Wells Blue Bunny.</div>
 
-					<!-- Row: Projects -->
-					<div class="row mx-1 mb-3">
-						<div class="col">
-							<div class="row px-1 text-white bg-fb">
-								code samples
-							</div>
-							<div class="row bg-light border">
-								&nbsp;<br>
-								&nbsp;<br>
-								&nbsp;<br>
-								&nbsp;<br>
-								&nbsp;<br>
-								&nbsp;<br>
-							</div>
-						</div>
-					</div>
-				</div>  		
-	    	</div>
-	    	<!-- < Page Elements -->
-		</div>
-	    
-	    <!-- Right Margin -->
-	    <div class="col-2 d-none d-lg-block d-xl-block"></div>
-	    
-	</div>
-</div>
+          <div class="orange-text">code samples:</div>
+          <a href="https://github.com/rodrmig/MySpace-Music-Player" target="_blank">MySpace Music Player from the mid 2000's</a>
+        </div>
+      </div>
 
+      <div>
+        <div class="orange-header">photo space</div>
+        <div id="photo-space">
+          <div><img src="img/img_01.jpeg" alt="profile-picture"></div>
+          <div><img src="img/img_02.jpeg" alt="profile-picture"></div>
+          <div><img src="img/img_03.jpeg" alt="profile-picture"></div>
+          <div><img src="img/img_04.jpeg" alt="profile-picture"></div>
+          <div><img src="img/img_05.jpeg" alt="profile-picture"></div>
+          <div><img src="img/img_06.jpeg" alt="profile-picture"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
