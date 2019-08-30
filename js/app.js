@@ -1,3 +1,6 @@
+/* ************************************************************************** */
+/* MySpace Music Player                                                       */
+/* ************************************************************************** */
 class UserInterface {
   constructor(settings) {
     this._settings = settings;
@@ -226,4 +229,5 @@ let settings = {
   audioFilePath: 'audio/93_Till_Infinity.mp3'
 };
 
-let ui = new MyspaceMusicPlayer(settings);
+let musicPlayer = new MyspaceMusicPlayer(settings);
+/* ************************************************************************** */
