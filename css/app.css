@@ -82,6 +82,10 @@
   height: auto;
 }
 
+#blurbs{
+  min-height: 200px;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -92,7 +96,7 @@ img {
 }
 
 .content>div {
-  margin-top: 28px;
+  margin-top: 35px;
 }
 
 .bold-text {
