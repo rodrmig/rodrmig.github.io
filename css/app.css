@@ -38,7 +38,7 @@
 
 #profile {
   display: grid;
-  grid-template-columns: repeat(2, 50%);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 #profile-name {
@@ -54,28 +54,13 @@
   grid-column: span 1;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: repeat(2, 50%);
+  grid-template-rows: repeat(2, 1fr);
   padding: 15px;
 }
 
 #profile-description>div {
   display: flex;
   align-items: flex-end;
-}
-
-#photo-space {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(2, auto);
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
-  padding: 8px;
-}
-
-#photo-space img {
-  border-style: solid;
-  border-width: 2px;
-  border-color: #6F92B2;
 }
 
 #online-icon{
@@ -87,7 +72,7 @@
   min-height: 200px;
 }
 
-img {
+#profile-picture > img {
   width: 100%;
   height: auto;
 }
@@ -119,6 +104,10 @@ img {
 
 .default-indent {
   padding-left: 10px;
+}
+
+.default-bottom-margin{
+  margin-bottom: 10px;
 }
 
 .blue-border {
@@ -161,9 +150,8 @@ img {
     grid-column: span 1;
   }
 }
-/* ************************************************************************** */
-/* MySpace Music Player                                                       */
-/* ************************************************************************** */
+
+/* MySpace Music Player ***************************************************** */
 .mmp-ui-container {
   background-image: linear-gradient(#ffffff, #cdcdcd, #969696);
   border-style: solid;
@@ -234,4 +222,89 @@ img {
   justify-content: center;
   align-items: flex-start;
 }
-/* ************************************************************************** */
+
+/* Photo Space ************************************************************** */
+.ps-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 8px;
+}
+
+.ps-image {
+  border-color: #6F92B2;
+  border-style: solid;
+  border-width: 2px;
+  height: auto;
+  width: 100%;
+  cursor: pointer;
+}
+
+.ps-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+.ps-modal-image {
+  margin: auto;
+  display: block;
+  height: auto;
+  width: 80%;
+  max-width: 400px;
+}
+
+.ps-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.ps-modal-close:hover,
+.ps-modal-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes ps-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.ps-zoom-in {
+  animation-name: ps-zoom-in;
+  animation-duration: 0.5s;
+}
+
+@keyframes ps-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.ps-fade-in {
+  animation-name: ps-fade-in;
+  animation-duration: 0.4s;
+}

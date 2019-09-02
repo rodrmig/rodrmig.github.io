@@ -1,6 +1,4 @@
-/* ************************************************************************** */
-/* MySpace Music Player                                                       */
-/* ************************************************************************** */
+/* MySpace Music Player ***************************************************** */
 class UserInterface {
   constructor(settings) {
     this._settings = settings;
@@ -222,12 +220,166 @@ class MyspaceMusicPlayer {
 
 }
 
-let settings = {
+let musicPlayerSettings = {
   containerID: 'music-player',
   song: '93_Till_Infinity.mp3',
   artist: 'Souls_of_Mischief',
   audioFilePath: 'audio/93_Till_Infinity.mp3'
 };
 
-let musicPlayer = new MyspaceMusicPlayer(settings);
-/* ************************************************************************** */
+let musicPlayer = new MyspaceMusicPlayer(musicPlayerSettings);
+
+/* Photo Space ************************************************************** */
+class Modal {
+  constructor(settings) {
+    this._settings = settings;
+    this._setRoot();
+    this._setHTML();
+    this._setCloseListener();
+  }
+
+  _setRoot() {
+    this._root = document.getElementById(this._settings.containerID);
+  }
+
+  _setHTML() {
+    let modalNode = this._createModalNode();
+    this._root.appendChild(modalNode);
+  }
+
+  _createModalNode() {
+    let container = this._createContainer();
+    let innerHTML = this._getInnerHTML();
+    container.innerHTML = innerHTML;
+    return container;
+  }
+
+  _createContainer() {
+    let container = document.createElement('div');
+    container.setAttribute('class', 'ps-modal ps-fade-in');
+    return container;
+  }
+
+  _getInnerHTML() {
+    let innerHTML = '';
+    innerHTML += '<span class="ps-modal-close">&times;</span>';
+    innerHTML += '<img class="ps-modal-image ps-zoom-in" src="">';
+    return innerHTML;
+  }
+
+  _setCloseListener() {
+    let closeButton = this._root.querySelector('.ps-modal-close');
+    let closeCallback = this._getCloseCallback();
+    closeButton.addEventListener('click', closeCallback);
+  }
+
+  _getCloseCallback() {
+    return function() {
+      let modal = this.closest('.ps-modal');
+      modal.style.display = 'none';
+    }
+  }
+
+  show(imageSource) {
+    this._setImageSource(imageSource);
+    this._showContainer();
+  }
+
+  _setImageSource(imageSource) {
+    let image = this._root.querySelector('.ps-modal-image');
+    image.setAttribute('src', imageSource);
+  }
+
+  _showContainer() {
+    let container = this._root.querySelector('.ps-modal');
+    container.style.display = 'block';
+  }
+}
+
+class Grid {
+  constructor(settings) {
+    this._settings = settings;
+    this._setRoot();
+    this._setHTML();
+  }
+
+  _setRoot() {
+    this._root = document.getElementById(this._settings.containerID);
+  }
+
+  _setHTML() {
+    let gridNode = this._createGridNode();
+    this._root.appendChild(gridNode);
+  }
+
+  _createGridNode() {
+    let container = this._createContainer();
+    let innerHTML = this._getInnerHTML();
+    container.innerHTML = innerHTML;
+    return container;
+  }
+
+  _createContainer() {
+    let container = document.createElement('div');
+    container.setAttribute('class', 'ps-container');
+    return container;
+  }
+
+  _getInnerHTML() {
+    let innerHTML = '';
+
+    for (let image of this._settings.images) {
+      innerHTML += '<img class="ps-image ps-hvr-grow" src="' + image + '">';
+    }
+
+    return innerHTML;
+  }
+
+  setImageClickCallback(callback) {
+    let imagesDisplayed = this._root.querySelectorAll('.ps-image');
+
+    for (let image of imagesDisplayed) {
+      image.addEventListener('click', callback);
+    }
+  }
+}
+
+class PhotoSpace{
+  constructor(settings){
+    this._settings = settings;
+    this._createGrid();
+    this._createModal();
+    this._setImageClickCallback();
+  }
+
+  _createGrid(){
+      let gridSettings = this._settings;
+      this._grid = new Grid(gridSettings);
+  }
+
+  _createModal(){
+    let modalSettings = {containerID: this._settings.containerID};
+    this._modal = new Modal(modalSettings);
+  }
+
+  _setImageClickCallback(){
+    let imageClickCallback = this._getImageClickCallback();
+    this._grid.setImageClickCallback(imageClickCallback);
+  }
+
+  _getImageClickCallback(){
+    let modal = this._modal;
+
+    return function(){
+      let imageSource = this.getAttribute('src');
+      modal.show(imageSource);
+    }
+  }
+}
+
+let photoSpaceSettings = {
+  containerID: 'photo-space',
+  images: ['img/img_01.jpeg', 'img/img_02.jpeg', 'img/img_03.jpeg', 'img/img_04.jpeg', 'img/img_05.jpeg', 'img/img_06.jpeg']
+};
+
+let photoSpace = new PhotoSpace(photoSpaceSettings);
